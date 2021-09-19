@@ -1,19 +1,37 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
-        {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
-        {% endblock %}
+<html lang="fr">
+<head>
+    {#
+    On spécifie comment sont encodés nos caractères, c'est un vaste sujet.
+    Pour l'instant il faut simplement garder à l'esprit que cet encodage doit
+    correspondre à celui de votre base de données et que l'UTF-8 est l'encodage le plus répandu
+    #}
+    <meta charset="UTF-8">
 
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+    {#
+    On spéficie comment les périphériques mobile doivent dimensionner leur viewport.
+    C'est à dire dans quelles dimensions ils doivent afficher la page.
+    Là encore, il s'agit du réglage recommandé.
+    #}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {# On spécifie simplement le titre de la page, #}
+    <title>{% block title %}Memory{% endblock %}</title>
+
+    {% block stylesheets %}
+        {# On rend notre jeu plus agréable à l'oeil grâce à quelques styles CSS #}
+        <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    {% endblock %}
+</head>
+<body>
+
+<h1>Memory Game</h1>
+
+{% block body %}{% endblock %}
+
+{% block javascripts %}
+    {# Rendons notre jeu intéractif grâce à un peu de Javascript #}
+    <script src="{{ asset('js/main.js') }}"></script>
+{% endblock %}
+</body>
 </html>

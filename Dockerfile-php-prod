@@ -20,8 +20,23 @@ RUN apt-get install -y --no-install-recommends \
 # On installe composer
 RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
 
-# On installe Chrome pour les tests fonctionnels
-RUN apt-get install chromium-driver -y
+# On copie le projet
+COPY . /app
+
+# On copie le fichier d'environnement de production
+COPY .env.prod /app/.env
 
 # On défini le répertoire par défaut du container
 WORKDIR /app
+
+# On installe paquets composers (sauf ceux de dev)
+RUN composer install --no-dev --optimize-autoloader
+
+# On compile les variables d'environnement de production nécessaire à Symfony
+RUN composer dump-env prod
+
+# On vide le cache Symfony
+RUN php bin/console cache:clear
+
+#
+ENTRYPOINT docker/deploy.sh

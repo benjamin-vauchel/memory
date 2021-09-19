@@ -2,6 +2,9 @@
     "composer/package-versions-deprecated": {
         "version": "1.11.99.4"
     },
+    "dbrekelmans/bdi": {
+        "version": "0.3"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -22,6 +25,9 @@
     },
     "doctrine/common": {
         "version": "3.1.2"
+    },
+    "doctrine/data-fixtures": {
+        "version": "1.5.0"
     },
     "doctrine/dbal": {
         "version": "2.13.3"
@@ -105,6 +111,9 @@
     },
     "phar-io/version": {
         "version": "3.1.0"
+    },
+    "php-webdriver/webdriver": {
+        "version": "1.11.1"
     },
     "phpdocumentor/reflection-common": {
         "version": "2.2.0"
@@ -402,6 +411,15 @@
     },
     "symfony/options-resolver": {
         "version": "v5.3.7"
+    },
+    "symfony/panther": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "877d853a05c6713665a2f4b954734592680abff6"
+        }
     },
     "symfony/password-hasher": {
         "version": "v5.3.7"

@@ -1,0 +1,11 @@
+# On se base sur l'image Docker de PHP 8 existante
+FROM node:latest
+
+# On copie le projet
+COPY . /app
+
+# On copie le projet
+COPY ./docker/nginx.conf /etc/nginx/conf.d/default.conf
+
+# On défini le répertoire par défaut du container
+WORKDIR /app

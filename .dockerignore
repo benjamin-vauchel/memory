@@ -1,4 +1,13 @@
 .git
-docker
+tests
+var
+vendor
 docker-compose.yml
 Dockerfile-php
+docker-compose-prod.yml
+Dockerfile-php-prod
+Dockerfile-php-nginx
+.env
+.env.test
+phpunit.xml.dist
+README.md

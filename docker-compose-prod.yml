@@ -1,0 +1,27 @@
+services:
+    # PHP
+    php:
+        build:
+            context: .
+            dockerfile: Dockerfile-php-prod
+        env_file:
+            - .env.prod
+        depends_on:
+            - db
+
+    # Serveur web
+    nginx:
+        build:
+            context: .
+            dockerfile: Dockerfile-nginx-prod
+        ports:
+            - 80
+
+    # Base de données
+    db:
+        image: mysql:8
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: memory
+            MYSQL_USER: user
+            MYSQL_PASSWORD: strong_password

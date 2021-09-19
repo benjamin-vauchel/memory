@@ -1,0 +1,36 @@
+@import "variables";
+
+// Reset des styles par défaut du navigateur
+* {
+  margin: 0;
+  padding: 0;
+}
+
+// Styles généraux de notre jeu
+html {
+  // Pour une meilleure accessiblité, on défini une taille de police basée sur la taille
+  // définie par l'utilisateur dans son navigateur.
+  // Par défaut, cette taille est de 16px, mais pour simplifier les calculs de nos
+  // mesures relatives "rem" nous allons la réduire à 10px, c'est à dire 62.5% de 16px.
+  font-size: 62.5%;
+
+  font-family: Lato, sans-serif;
+  padding: 2rem;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+h1 {
+  font-size: 4rem;
+  text-align: center;
+  margin-bottom: 5rem;
+  background-color: $primary-color;
+  color: white;
+  padding: 2rem;
+}
+
+// On importe les styles spécifiques de nos écrans
+@import "splash_screen";
+@import "game_screen";

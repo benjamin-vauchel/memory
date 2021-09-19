@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {#
+    Notre jeu se compose de 2 écrans, 1 seul pouvant être affiché à la fois :
+        - le "splash screen" : l'écran d'accueil affichant le tableau de score,
+          le bouton pour lancer une nouvelle partie et les règles du jeu
+        - le "game screen" : l'écran affichant le timer et les cartes du jeu.
+    #}
+
+    {# Ecran "splash screen" #}
+    <div class="splash-screen">
+        {% if scores is not empty %}
+        {# Tableau des scores #}
+        <table class="score-board">
+            <thead>
+            <tr>
+                <th>Rang</th>
+                <th>Nom</th>
+                <th>Temps</th>
+            </tr>
+            </thead>
+            {% for i,score in scores %}
+                <tr>
+                    <td>#{{ i+1 }}</td>
+                    <td>{{ score.name }}</td>
+                    <td>{{ score.time }}s</td>
+                </tr>
+            {% endfor %}
+        </table>
+        {%  endif %}
+
+        {# Nouvelle partie #}
+        <form class="form">
+            <input type="text" name="name" id="name" class="input" placeholder="VOTRE NOM" maxlength="3" autofocus>
+            <input type="hidden" name="time" id="time" value="{{ time }}">
+            <button class="button" id="new-game">Nouvelle partie</button>
+        </form>
+
+        {# Règles du jeu #}
+        <p class="rules">Vous avez {{ time/60 }} minutes pour reconstituer les {{ pairs }} paires ! Good Luck !</p>
+    </div>
+
+    {# Ecran "game screen" #}
+    <div class="game-screen">
+        {# Timer #}
+        <div class="timer">
+            <div class="progress-bar" id="progress-bar">
+                <div class="progress-bar-inner"></div>
+            </div>
+        </div>
+
+        {# Jeu #}
+        <div class="memory-game">
+            {% for card in cards %}
+                <div class="card" data-card-number="{{ card }}"></div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
