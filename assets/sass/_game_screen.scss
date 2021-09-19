@@ -1,0 +1,123 @@
+@import "variables";
+
+// Game screen
+.game-screen {
+  // on cache par défaut l'écran du jeu, il sera révélé lorsque que le joueur
+  // cliquera sur le bouton "Nouvelle partie"
+  display: none;
+}
+
+// Timer
+.timer {
+  margin-bottom: 5rem;
+}
+
+.progress-bar {
+  height: 3rem;
+  border: solid 1px $primary-color;
+
+  .progress-bar-inner {
+    height: 100%;
+    width: 0;
+    background-color: $primary-color;
+  }
+}
+
+// Jeu
+.memory-game {
+  max-width: 100rem;
+  margin: auto;
+  text-align: center;
+}
+
+// Carte
+.card {
+  display: inline-block;
+  width: 10rem;
+  height: 10rem;
+  box-sizing: border-box;
+  border: solid .1rem $primary-color;
+  margin: .5rem;
+
+  background: $primary-color;
+  border-radius: .5rem;
+
+  transition: transform ease-in .1s;
+
+  &:hover {
+    background: lighten($primary-color, 5%);
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+
+  &.card--flipped {
+    position: relative;
+    background-image: url(/images/cards_stripes.png);
+    background-size: 10rem auto;
+
+    // on utilise une boucle SCSS pour générer les styles des 18 cartes différentes
+    @for $i from 1 through 18 {
+      &[data-card="#{$i}"] {
+        background-position: 0 (-10rem * ($i - 1));
+      }
+    }
+  }
+
+  &.card--flipped-wrong {
+    animation: shake 1s;
+    animation-fill-mode: forwards;
+  }
+
+  &.card--flipped-right::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    animation: right 1s;
+    animation-fill-mode: forwards;
+    background: $primary-color;
+    z-index: -1;
+  }
+
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(-.5rem);
+  }
+
+  20% {
+    transform: translateX(.5rem);
+  }
+
+  40% {
+    transform: translateX(-.5rem);
+  }
+
+  60% {
+    transform: translateX(.5rem);
+  }
+
+  80% {
+    transform: translateX(-.5rem);
+  }
+
+  100% {
+    transform: translateX(0rem);
+  }
+}
+
+@keyframes right {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}

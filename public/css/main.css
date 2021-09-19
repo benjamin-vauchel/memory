@@ -1,0 +1,227 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: Lato, sans-serif;
+  padding: 2rem;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+h1 {
+  font-size: 4rem;
+  text-align: center;
+  margin-bottom: 5rem;
+  background-color: #28b485;
+  color: white;
+  padding: 2rem;
+}
+
+.score-board {
+  max-width: 10rem;
+  margin: auto;
+  text-align: center;
+  color: #28b485;
+  border-collapse: collapse;
+}
+.score-board th {
+  font-weight: bold;
+}
+.score-board td, .score-board th {
+  border: solid 1px #28b485;
+  padding: 1rem 5rem;
+}
+
+.form {
+  margin: 5rem;
+  text-align: center;
+}
+
+.input {
+  padding: 1em;
+  border: solid 0.1rem #28b485;
+  border-radius: 10rem;
+  text-transform: uppercase;
+  color: #28b485;
+  width: 15rem;
+  padding-right: 5rem;
+}
+
+.button {
+  padding: 1em;
+  border-radius: 10rem;
+  background-color: #28b485;
+  border: solid 0.1rem #28b485;
+  color: #fff;
+  margin-left: -5rem;
+  transition: transform ease-in 0.1s;
+}
+.button:hover {
+  background: #2dc994;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.button:active {
+  background: #2dc994;
+  transform: scale(1.07);
+  cursor: pointer;
+}
+
+.rules {
+  text-align: center;
+}
+
+.game-screen {
+  display: none;
+}
+
+.timer {
+  margin-bottom: 5rem;
+}
+
+.progress-bar {
+  height: 3rem;
+  border: solid 1px #28b485;
+}
+.progress-bar .progress-bar-inner {
+  height: 100%;
+  width: 0;
+  background-color: #28b485;
+}
+
+.memory-game {
+  max-width: 100rem;
+  margin: auto;
+  text-align: center;
+}
+
+.card {
+  display: inline-block;
+  width: 10rem;
+  height: 10rem;
+  box-sizing: border-box;
+  border: solid 0.1rem #28b485;
+  margin: 0.5rem;
+  background: #28b485;
+  border-radius: 0.5rem;
+  transition: transform ease-in 0.1s;
+}
+.card:hover {
+  background: #2dc994;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.card.card--flipped {
+  position: relative;
+  background-image: url(/images/cards_stripes.png);
+  background-size: 10rem auto;
+}
+.card.card--flipped[data-card="1"] {
+  background-position: 0 0rem;
+}
+.card.card--flipped[data-card="2"] {
+  background-position: 0 -10rem;
+}
+.card.card--flipped[data-card="3"] {
+  background-position: 0 -20rem;
+}
+.card.card--flipped[data-card="4"] {
+  background-position: 0 -30rem;
+}
+.card.card--flipped[data-card="5"] {
+  background-position: 0 -40rem;
+}
+.card.card--flipped[data-card="6"] {
+  background-position: 0 -50rem;
+}
+.card.card--flipped[data-card="7"] {
+  background-position: 0 -60rem;
+}
+.card.card--flipped[data-card="8"] {
+  background-position: 0 -70rem;
+}
+.card.card--flipped[data-card="9"] {
+  background-position: 0 -80rem;
+}
+.card.card--flipped[data-card="10"] {
+  background-position: 0 -90rem;
+}
+.card.card--flipped[data-card="11"] {
+  background-position: 0 -100rem;
+}
+.card.card--flipped[data-card="12"] {
+  background-position: 0 -110rem;
+}
+.card.card--flipped[data-card="13"] {
+  background-position: 0 -120rem;
+}
+.card.card--flipped[data-card="14"] {
+  background-position: 0 -130rem;
+}
+.card.card--flipped[data-card="15"] {
+  background-position: 0 -140rem;
+}
+.card.card--flipped[data-card="16"] {
+  background-position: 0 -150rem;
+}
+.card.card--flipped[data-card="17"] {
+  background-position: 0 -160rem;
+}
+.card.card--flipped[data-card="18"] {
+  background-position: 0 -170rem;
+}
+.card.card--flipped-wrong {
+  animation: shake 1s;
+  animation-fill-mode: forwards;
+}
+.card.card--flipped-right::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  animation: right 1s;
+  animation-fill-mode: forwards;
+  background: #28b485;
+  z-index: -1;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(-0.5rem);
+  }
+  20% {
+    transform: translateX(0.5rem);
+  }
+  40% {
+    transform: translateX(-0.5rem);
+  }
+  60% {
+    transform: translateX(0.5rem);
+  }
+  80% {
+    transform: translateX(-0.5rem);
+  }
+  100% {
+    transform: translateX(0rem);
+  }
+}
+@keyframes right {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

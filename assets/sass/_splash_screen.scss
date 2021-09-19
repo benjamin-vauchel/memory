@@ -1,0 +1,62 @@
+@import "variables";
+
+// Tableau des scores
+.score-board {
+  max-width: 10rem;
+  margin: auto;
+  text-align: center;
+  color: $primary-color;
+  border-collapse: collapse;
+
+  th {
+    font-weight: bold;
+  }
+
+  td, th {
+    border: solid 1px $primary-color;
+    padding: 1rem 5rem;
+  }
+}
+
+// Nouvelle partie
+.form {
+  margin: 5rem;
+  text-align: center;
+}
+
+.input {
+  padding: 1em;
+  border: solid .1rem $primary-color;
+  border-radius: 10rem;
+  text-transform: uppercase;
+  color: $primary-color;
+  width: 15rem;
+  padding-right: 5rem;
+}
+
+.button {
+  padding: 1em;
+  border-radius: 10rem;
+  background-color: $primary-color;
+  border: solid .1rem $primary-color;
+  color: #fff;
+  margin-left: -5rem;
+  transition: transform ease-in .1s;
+
+  &:hover {
+    background: lighten($primary-color, 5%); // Fonction SCSS pour éclaircir une couleur
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+
+  &:active {
+    background: lighten($primary-color, 5%); // Fonction SCSS pour éclaircir une couleur
+    transform: scale(1.07);
+    cursor: pointer;
+  }
+}
+
+// Règles du jeu
+.rules {
+  text-align: center;
+}
